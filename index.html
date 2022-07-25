@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Restaurante</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/aos.css">
+	<script src="https://kit.fontawesome.com/81c2c05f29.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<nav class="navbar">
+		<header>
+			<a href="index.html">
+				<i class="fas fa-utensils"></i>
+					Restaurante
+				<i class="fas fa-utensils"></i>
+			</a>
+		</header>
+		<header>
+			<a href="#">Inicio</a>
+			<a href="#">Restaurante</a>
+			<a href="" class="active">Encargos</a>
+			<a href="#">Reservas</a>
+			<a href="#">Contacto</a>
+		</header>
+    </nav>
+    <div class="capa"></div>
+	<div class="parallax">
+		<h1 class="aos-item" data-aos="fade-in">
+			Encarga tu comida preferida y ven a buscarla recién hecha
+		</h1>
+	</div>
+	<div class="home">
+		<div class="container">
+			<form name="formulario" action="restaurante.php" method="post">
+				<div class="row">
+					<div class="col-100" class="aos-item" data-aos="fade-down">
+						<div class="card">
+							<h3>
+								Primero elige tu comida, y después indica los siguientes datos para hacer tu encargo
+							</h3>
+							<div class="row">
+								<div class="col-100">
+									<label for="nombre">Nombre: </label>
+									<input type="text"
+										   id="nombre" 
+										   name="nombre" 
+										   required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-100">
+									<label for="telefono">Teléfono: </label>
+									<input type="tel"
+										   id="telefono" 
+										   name="telefono" 
+										   required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-100">
+									<label for="fecha">Fecha:</label>
+									<input type="date" 
+										   id="fecha" 
+										   name="fecha" 
+										   required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-100">
+									<label for="observaciones">Observaciones:</label>
+									<textarea id="observaciones" name="observaciones"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-100 flex j-center a-center">
+									<button type="submit">
+										Enviar
+									</button>
+									<button type="reset">
+										Borrar
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row flex j-center align-center">
+					<div class="col-50" class="aos-item" data-aos="fade-down">
+						<div class="card">
+							<h3>
+								Paella de la casa
+							</h3>
+							<img src="./img/food1.jpg">
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxOne"
+											name="marisco"
+											value="Paella de marisco. Cantidad: ">
+									<label for="checkboxOne">Paella de marisco 20,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('paella1',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="paella1" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-paella1"
+										   class="more">
+									<button type="button" onclick="cantidad('paella1',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxTwo" 
+											name="pollo" 
+											value="Paella de pollo. Cantidad: ">
+									<label for="checkboxTwo">Paella de pollo 23,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('paella2',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="paella2" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-paella2"
+										   class="more">
+									<button type="button" onclick="cantidad('paella2',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxThree" 
+											name="mixta" 
+											value="Paella mixta. Cantidad: ">
+									<label for="checkboxThree">Paella mixta	25,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('paella3',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="paella3" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-paella3"
+										   class="more">
+									<button type="button" onclick="cantidad('paella3',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxFour" 
+											name="conejo" 
+											value="Paella de conejo. Cantidad: ">
+									<label for="checkboxFour">Paella de conejo 18,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('paella4',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="paella4" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-paella4"
+										   class="more">
+									<button type="button" onclick="cantidad('paella4',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-50" class="aos-item" data-aos="fade-down">
+						<div class="card">
+							<h3>
+								La mejor tortilla de la zona
+							</h3>
+							<img src="./img/food2.jpg">
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+										id="checkboxFive" 
+										name="con" 
+										value="Tortilla con cebolla. Cantidad: ">
+									<label for="checkboxFive">Tortilla con cebolla 10,50€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('tortilla1',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="tortilla1" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-tortilla1"
+										   class="more">
+									<button type="button" onclick="cantidad('tortilla1',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxSix" 
+											name="sin" 
+											value="Tortilla sin cebolla. Cantidad: ">
+									<label for="checkboxSix">Tortilla sin cebolla 9,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('tortilla2',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="tortilla2" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-tortilla2"
+										   class="more">
+									<button type="button" onclick="cantidad('tortilla2',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxSeven" 
+											name="francesa" 
+											value="Tortilla francesa. Cantidad: ">
+									<label for="checkboxSeven">Tortilla francesa 8,20€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('tortilla3',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="tortilla3" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-tortilla3"
+										   class="more">
+									<button type="button" onclick="cantidad('tortilla3',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-50" class="aos-item" data-aos="fade-down">
+						<div class="card">
+							<h3>
+								Hamburguesas jugosas
+							</h3>	
+							<img src="./img/food3.jpg">
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxEight" 
+											name="casa" 
+											value="Hamburguesa de la casa. Cantidad: ">
+									<label for="checkboxEight">Hamburguesa de la casa 10,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('burguer1',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="burguer1" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-burguer1"
+										   class="more">
+									<button type="button" onclick="cantidad('burguer1',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxNine" 
+											name="bpollo" 
+											value="Hamburguesa de pollo. Cantidad: ">
+									<label for="checkboxNine">Hamburguesa de pollo 9,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('burguer2',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="burguer2" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-burguer2"
+										   class="more">
+									<button type="button" onclick="cantidad('burguer2',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxTen" 
+											name="queso" 
+											value="Hamburguesa de queso. Cantidad: ">
+									<label for="checkboxTen">Hamburguesa de queso 8,50€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('burguer3',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="burguer3" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-burguer3"
+										   class="more">
+									<button type="button" onclick="cantidad('burguer3',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxEleven" 
+											name="chivito" 
+											value="Chivito. Cantidad: ">
+									<label for="checkboxEleven">Bocadillo 8,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('burguer4',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="burguer4" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-burguer4"
+										   class="more">
+									<button type="button" onclick="cantidad('burguer4',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-50" class="aos-item" data-aos="fade-down">
+						<div class="card">
+							<h3>
+								Croquetas caseras
+							</h3>
+							<img src="./img/food4.jpg">
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxTwelve" 
+											name="jamon" 
+											value="Croquetas de jamón. Cantidad: ">
+									<label for="checkboxTwelve">Croquetas de jamón 5,00€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('croqueta1',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="croqueta1" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-croqueta1"
+										   class="more">
+									<button type="button" onclick="cantidad('croqueta1',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxThirteen" 
+											name="cpollo" 
+											value="Croquetas de pollo. Cantidad: ">
+									<label for="checkboxThirteen">Croquetas de pollo 4,50€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('croqueta2',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="croqueta2" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-croqueta2"
+										   class="more">
+									<button type="button" onclick="cantidad('croqueta2',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxFourteen" 
+											name="boletus" 
+											value="Croquetas de boletus. Cantidad: ">
+									<label for="checkboxFourteen">Croquetas de boletus 4,20€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('croqueta3',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="croqueta3" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-croqueta3"
+										   class="more">
+									<button type="button" onclick="cantidad('croqueta3',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+
+							<div class="row ks-cboxtags">
+								<div class="col-50 chk">
+									<input type="checkbox" 
+											id="checkboxFifteen" 
+											name="verdura" 
+											value="Croquetas de verdura. Cantidad: ">
+									<label for="checkboxFifteen">Croquetas de verdura 3,80€</label>
+								</div>
+								<div class="col-50 flex j-center a-center">
+									<button type="button" onclick="cantidad('croqueta4',0)">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input id="croqueta4" 
+										   type="text"  
+										   placeholder="0" 
+										   name="more-croqueta4"
+										   class="more">
+									<button type="button" onclick="cantidad('croqueta4',1)">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+    <footer>
+        <a href="./index.html">
+			<i class="fas fa-utensils"></i>
+				Restaurante
+			<i class="fas fa-utensils"></i>
+        </a>
+		<hr>
+		<div class="address">
+			<p>
+				<i class="fas fa-home mr"></i>
+				Restaurant Street, 10
+			</p>
+			<p>
+				<i class="fas fa-envelope mr"></i>
+				restaurant@restaurant.com
+			</p>
+			<p>
+				<i class="fas fa-phone mr"></i>
+				+34 666 666 666
+			</p>
+		</div>
+		<p>
+			<span>
+				<i class="fa fa-facebook"></i>
+			</span>
+			<span>
+				<i class="fa fa-linkedin-square"></i>
+			</span>
+			<span>
+				<i class="fa fa-twitter"></i>
+			</span>
+			<span>
+				<i class="fa fa-instagram"></i>
+			</span>
+		</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" 
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+            crossorigin="anonymous"></script>
+	<script src="./js/aos.js"></script>
+	<script src="./js/script.js"></script>
+    <script>
+    	AOS.init({
+    		easing: 'ease-in-out-sine'
+    	});
+    </script>
+</body>
+</html>
